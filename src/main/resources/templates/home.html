@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/default_layout}">
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+    <!--    <link rel="stylesheet" th:href="@{/css/page/home.css}" >-->
+</th:block>
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+    <!--    <script th:src="@{/js/page/home.js}"></script>-->
+</th:block>
+
+<!-- Content -->
+<div layout:fragment="content">
+    <div class="container">
+        <h1>Content</h1>
+        <div sec:authorize="isAnonymous()">
+            <button type="button" th:onclick="|location.href='@{/login}'|" >로그인</button>
+            <button type="button" th:onclick="|location.href='@{/join}'|" >회원가입</button>
+        </div>
+        <div sec:authorize="isAuthenticated()">
+            <button type="button" th:onclick="|location.href='@{/logout}'|" >로그아웃</button>
+            <p th:text="|${#authentication.name}님 환용항요|"></p>
+        </div>
+    </div>
+</div>
+</html>

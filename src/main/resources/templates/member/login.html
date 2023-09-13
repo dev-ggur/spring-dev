@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/default_layout}">
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+</th:block>
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+    <!--    <script th:src="@{/js/page/home.js}"></script>-->
+</th:block>
+
+<!-- Content -->
+<div layout:fragment="content">
+    <div class="container" style="border: 10px solid red;">
+        <div class="d-flex align-items-center flex-column justify-content-center  vh-100">
+            <h2>로그인</h2>
+            <form th:method="POST" th:action="@{/login}" th:object="${loginMemberRequest}">
+                <div class="card p-3" style="width: 460px;">
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label">아이디</label>
+                        <input type="email" class="form-control" id="formGroupExampleInput" th:field="*{memberEmail}" placeholder="Example input placeholder">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput2" class="form-label">비밀번호</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2" th:field="*{memberPassword}" placeholder="Another input placeholder">
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary w-100">로그인</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</html>

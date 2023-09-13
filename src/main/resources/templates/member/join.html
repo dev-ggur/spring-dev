@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/default_layout}">
+
+<!-- index.html 고유 CSS 추가 -->
+<th:block layout:fragment="css">
+    <!--    <link rel="stylesheet" th:href="@{/css/page/home.css}" >-->
+</th:block>
+<!-- index.html 고유 스크립트 추가 -->
+<th:block layout:fragment="script">
+    <!--    <script th:src="@{/js/page/home.js}"></script>-->
+</th:block>
+
+<!-- Content -->
+<div layout:fragment="content">
+    <form th:method="POST" th:object="${joinMemberRequest}" th:action="@{/join}">
+        <label th:for="memberEmail">이메일</label>
+        <input type="email" th:field="*{memberEmail}">
+        <p th:errors="*{memberEmail}"></p>
+        <label th:for="memberPassword">비밀번호</label>
+        <input type="password" th:field="*{memberPassword}">
+        <p th:errors="*{memberPassword}"></p>
+        <label th:for="memberNickname">닉네임</label>
+        <input type="text" th:field="*{memberNickname}">
+        <p th:errors="*{memberNickname}"></p>
+        <button type="submit">회원가입</button>
+    </form>
+</div>
+</html>

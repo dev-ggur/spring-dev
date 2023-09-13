@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/dev_springboot?serverTimezone=Asia/Seoul
+    username: root
+    password: 1234
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: create-drop
+  devtools:
+    livereload:
+      enabled: true
+
+naver-cloud-sms:
+  accessKey: "gBHVFkTXNquxkoV1Sa0y"
+  secretKey: "HDAYZhH7FZAc0do9ADRIcrHv1LBozvwKfPmI5Ifs"
+  serviceId: "ncp:sms:kr:315761793343:chi_shop"
+  senderPhone: "01044032571"
+
