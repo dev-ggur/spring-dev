@@ -15,17 +15,29 @@
 
 <!-- Content -->
 <div layout:fragment="content">
-    <form th:method="POST" th:object="${joinMemberRequest}" th:action="@{/join}">
-        <label th:for="memberEmail">이메일</label>
-        <input type="email" th:field="*{memberEmail}">
-        <p th:errors="*{memberEmail}"></p>
-        <label th:for="memberPassword">비밀번호</label>
-        <input type="password" th:field="*{memberPassword}">
-        <p th:errors="*{memberPassword}"></p>
-        <label th:for="memberNickname">닉네임</label>
-        <input type="text" th:field="*{memberNickname}">
-        <p th:errors="*{memberNickname}"></p>
-        <button type="submit">회원가입</button>
-    </form>
+    <div class="container">
+        <div class="d-flex align-items-center flex-column justify-content-center" style="height: 500px;">
+            <div class="mb-2">
+                <h2>회원가입</h2>
+            </div>
+            <div class="card p-3" style="width: 350px;">
+                <form th:method="POST" th:object="${joinMemberRequest}" th:action="@{/join}">
+                    <div class="mb-3">
+                        <label th:for="memberEmail" class="form-label">이메일</label>
+                        <input type="email" class="form-control" th:field="*{memberEmail}">
+                    </div>
+                    <div class="mb-3">
+                        <label th:for="memberPassword" class="form-label">비밀번호</label>
+                        <input type="password" class="form-control" th:field="*{memberPassword}">
+                    </div>
+                    <div class="mb-3">
+                        <label th:for="memberNickname" class="form-label">닉네임</label>
+                        <input type="text" class="form-control" th:field="*{memberNickname}">
+                    </div>
+                    <button class="btn btn-primary w-100" type="submit">회원가입</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 </html>
